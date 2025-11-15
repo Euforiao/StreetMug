@@ -1,0 +1,317 @@
+:root {
+    --accent: #00ff99;
+    --accent2: #14c0ff;
+    --text: #e8e8e8;
+    --text-muted: #9c9c9c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    min-height: 100%;
+}
+
+body {
+    background: radial-gradient(circle at 20% 10%, #0b1122, #000000 60%);
+    color: var(--text);
+    font-family: "Segoe UI", system-ui, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Kosmiczne tło + parallax + mgła */
+.cosmic-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -3;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.parallax-layer {
+    position: absolute;
+    inset: -30%;
+    opacity: 0.6;
+}
+
+.layer-back {
+    background:
+        radial-gradient(circle at 30% 20%, rgba(0,255,153,0.15), transparent 60%),
+        radial-gradient(circle at 80% 70%, rgba(20,192,255,0.10), transparent 70%);
+    filter: blur(60px);
+}
+
+.layer-mid {
+    background:
+        radial-gradient(circle at 10% 80%, rgba(255,255,255,0.16), transparent 60%),
+        radial-gradient(circle at 70% 20%, rgba(0,255,153,0.18), transparent 65%);
+    filter: blur(40px);
+}
+
+.layer-front {
+    background:
+        radial-gradient(circle at 50% 50%, rgba(20,192,255,0.35), transparent 70%);
+    filter: blur(35px);
+}
+
+/* Powoli przesuwająca się mgła */
+.fog-layer {
+    position: absolute;
+    inset: -40%;
+    background:
+        radial-gradient(circle at 0% 50%, rgba(0,255,120,0.24), transparent 65%),
+        radial-gradient(circle at 100% 50%, rgba(0,220,255,0.22), transparent 65%);
+    opacity: 0.45;
+    filter: blur(50px);
+    animation: fogDrift 40s linear infinite alternate;
+}
+
+@keyframes fogDrift {
+    0%   { transform: translate3d(-8%, -6%, 0) scale(1); }
+    50%  { transform: translate3d(4%, 4%, 0) scale(1.05); }
+    100% { transform: translate3d(10%, -3%, 0) scale(1.08); }
+}
+
+/* Matrix-style binary rain – bright, dense, slow */
+.binary-rain {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    overflow: hidden;
+    mix-blend-mode: screen;
+    opacity: 0.3;
+}
+
+.binary-column {
+    position: absolute;
+    top: -130%;
+    width: 2.4ch;
+    white-space: pre;
+    color: #7bffb4;
+    font-family: "Courier New", monospace;
+    font-size: 0.85rem;
+    text-shadow:
+        0 0 6px rgba(0, 255, 102, 0.9),
+        0 0 12px rgba(0, 255, 150, 0.7);
+    opacity: 0.95;
+    background: linear-gradient(
+        to bottom,
+        rgba(181, 255, 220, 0.95) 0%,
+        rgba(123, 255, 180, 0.85) 12%,
+        rgba(0, 0, 0, 0) 38%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: binaryFall var(--speed) linear infinite;
+}
+
+.binary-column:nth-child(odd) {
+    opacity: 0.8;
+}
+
+@keyframes binaryFall {
+    0%   { transform: translateY(-130%); }
+    100% { transform: translateY(130%);  }
+}
+
+/* Przycisk języka */
+.lang-switch {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 10;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(7px);
+    border: 1px solid rgba(20,192,255,0.7);
+    color: var(--accent2);
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.lang-switch:hover {
+    box-shadow: 0 0 14px rgba(20,192,255,0.6);
+    transform: translateY(-1px);
+}
+
+/* Nagłówek z banerem */
+.page-header {
+    padding-top: 64px;
+    padding-bottom: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-image {
+    width: 92%;
+    max-width: 900px;
+    border-radius: 16px;
+    box-shadow:
+        0 0 25px rgba(0,255,153,0.32),
+        0 0 60px rgba(0,0,0,0.8);
+    border: 1px solid rgba(255,255,255,0.14);
+    animation: bannerGlow 6s ease-in-out infinite alternate;
+}
+
+@keyframes bannerGlow {
+    0% {
+        box-shadow:
+            0 0 20px rgba(0,255,153,0.35),
+            0 0 40px rgba(0,0,0,0.8);
+        border-color: rgba(255,255,255,0.12);
+    }
+    100% {
+        box-shadow:
+            0 0 32px rgba(0,255,200,0.7),
+            0 0 80px rgba(0,0,0,0.9);
+        border-color: rgba(0,255,180,0.8);
+    }
+}
+
+/* Sekcje */
+.lang-block {
+    width: 100%;
+}
+
+.section {
+    max-width: 760px;
+    margin: 54px auto;
+    padding: 0 18px;
+    text-align: center;
+}
+
+.section h2 {
+    color: var(--accent);
+    font-size: 0.95rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    animation: neonHeader 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes neonHeader {
+    0% {
+        text-shadow: 0 0 6px rgba(0,255,153,0.6);
+    }
+    100% {
+        text-shadow: 0 0 12px rgba(0,255,200,0.95);
+    }
+}
+
+.section p {
+    font-size: 1.02rem;
+}
+
+/* Motto */
+.motto {
+    margin-top: 18px;
+    border-top: 2px solid var(--accent);
+    padding-top: 12px;
+    font-style: italic;
+    color: var(--text-muted);
+}
+
+/* Box CTA */
+.cta-box {
+    margin-top: 18px;
+    padding: 18px 16px;
+    border-radius: 16px;
+    border: 1px solid rgba(20,192,255,0.55);
+    background: rgba(4, 10, 18, 0.82);
+    backdrop-filter: blur(10px);
+    font-size: 0.96rem;
+    box-shadow: 0 0 24px rgba(0,0,0,0.8);
+}
+
+/* Divider */
+.divider {
+    width: 90%;
+    max-width: 760px;
+    margin: 24px auto;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0.55;
+    animation: neonLine 4s ease-in-out infinite alternate;
+}
+
+@keyframes neonLine {
+    0%   { opacity: 0.4; }
+    100% { opacity: 0.9; }
+}
+
+/* Linki */
+.links {
+    margin-top: 22px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.link-btn {
+    text-decoration: none;
+    color: var(--accent2);
+    border: 1px solid rgba(20,192,255,0.65);
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: rgba(0,0,0,0.46);
+    backdrop-filter: blur(6px);
+    font-size: 0.95rem;
+    transition: 0.2s;
+}
+
+.link-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 16px rgba(20,192,255,0.7);
+}
+
+/* Teaser */
+.teaser p {
+    font-size: 0.98rem;
+    color: #d0fff1;
+}
+
+/* Stopka */
+.site-footer {
+    margin: 64px 0 32px;
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+/* Fade-in sekcji */
+.fade-section {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.fade-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .section {
+        margin: 42px auto;
+        padding: 0 16px;
+    }
+
+    .banner-image {
+        width: 94%;
+    }
+
+    .lang-switch {
+        font-size: 0.8rem;
+        padding: 7px 14px;
+    }
+}
