@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🟩 **StreetMug — Cosmic Street Manifest**
+#  **StreetMug — Cosmic Street Manifest**
 ### *Where concrete meets cosmos. Where a cup becomes a portal.*
 
 <img src="banner.png" width="80%" style="border-radius:16px;">
