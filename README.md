@@ -39,7 +39,7 @@ Easy micro-support directly from the street.
 ### ✔ Basics of crypto  
 Short, simple guides: wallets, safety, airdrops.
 
-### ✔ $ZIK Token  
+### ✔ SMUG Token  
 A community token powering future StreetMug mechanics.
 
 ### ✔ StreetMug Box  
