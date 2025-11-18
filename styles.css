@@ -359,7 +359,29 @@ body {
   margin-top: 20px;
 }
 
+/* ===========================
+   CTA CARD BUTTON => REAL BUTTON
+   =========================== */
 
+.cta-card__button{
+  display: inline-block;
+  padding: 12px 26px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,255,102,0.4);
+  background: rgba(0,255,102,0.08);
+  color: var(--accent-neon);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: 0.25s;
+  margin-top: 12px;
+}
+
+.cta-card__button:hover{
+  background: rgba(0,255,102,0.18);
+  box-shadow: 0 0 12px rgba(0,255,102,0.6);
+}
 
 
 
