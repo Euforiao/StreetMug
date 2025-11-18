@@ -315,3 +315,57 @@ body {
         padding: 7px 14px;
     }
 }
+
+
+/* ===========================
+   SMUG Token Section (EN / PL)
+   =========================== */
+
+#smug-token p{
+  max-width: 46rem;
+  margin-inline: auto;
+  margin-bottom: 14px;
+}
+
+.smug-desc{
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.neon-line-left, .neon-line-right{
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--accent-neon);
+  box-shadow: 0 0 6px rgba(0,255,102,0.7);
+}
+
+.neon-header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.neon-header h2{
+  font-size: 1.4rem;
+  color: var(--accent-neon);
+  text-shadow: 0 0 10px rgba(0,255,102,0.7);
+}
+
+#smug-token .cta-wrap{
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
